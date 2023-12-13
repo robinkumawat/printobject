@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>print objects</title>
+</head>
+<body>
+    <div>
+        <input type="text" placeholder="how much time you have print">
+        <button>start</button>
+        <p></p>
+    </div>
+    <script>
+        const input = document.querySelector("input")
+        const btn = document.querySelector("button")
+        const output = document.querySelector("p")
+
+        const person= {
+            name : "Robin",
+            age: "22",
+            profession :"Full stack developer",
+            hometown : "Jhunjhunu"
+
+        }
+        
+        
+        const value = Object.keys(person)
+        let i;
+        btn.addEventListener("click", startintervel)
+
+        
+        function startintervel(){
+            i = Number(input.value)
+
+            
+            recursion();
+        }
+
+        function recursion(){
+            output.innerHTML="";
+            let j =0;
+            const intervel = setInterval(()=>{
+                if (j ===value.length){
+                    clearInterval(intervel   )  
+
+                    if(--i>0 )recursion() 
+                }
+                else{
+                    output.innerHTML+= person[value[j++]] + "<br>"
+                }
+            },1000)
+        }
+        
+    </script>
+    
+</body>
+</html> 
